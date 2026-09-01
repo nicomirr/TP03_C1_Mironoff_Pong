@@ -1,0 +1,40 @@
+using UnityEngine;
+
+namespace Game.Pause
+{
+    public class PauseManager : MonoBehaviour
+    {
+        private bool _gamePaused;
+
+        private void Awake()
+        {
+            PauseEvents.OnPauseInputPressed += TogglePauseState;
+            PauseEvents.OnContinueButtonClicked += TogglePauseState;
+        }
+
+        //private void Start()
+        //{
+        //    _gamePaused = true;
+        //    Time.timeScale = 0;
+        //}
+
+        private void OnDestroy()
+        {
+            PauseEvents.OnPauseInputPressed -= TogglePauseState;
+            PauseEvents.OnContinueButtonClicked -= TogglePauseState;
+        }
+
+        private void TogglePauseState()
+        {           
+            _gamePaused = !_gamePaused;
+            
+            Time.timeScale = _gamePaused ? 0f : 1f;
+
+            if (_gamePaused)
+                PauseEvents.RaiseGamePausedByInput();
+            else
+                PauseEvents.RaiseGameUnpausedByInput();
+        }
+    }
+}
+
