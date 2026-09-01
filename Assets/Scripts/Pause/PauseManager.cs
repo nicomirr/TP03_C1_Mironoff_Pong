@@ -11,13 +11,7 @@ namespace Game.Pause
             PauseEvents.OnPauseInputPressed += TogglePauseState;
             PauseEvents.OnContinueButtonClicked += TogglePauseState;
         }
-
-        //private void Start()
-        //{
-        //    _gamePaused = true;
-        //    Time.timeScale = 0;
-        //}
-
+             
         private void OnDestroy()
         {
             PauseEvents.OnPauseInputPressed -= TogglePauseState;

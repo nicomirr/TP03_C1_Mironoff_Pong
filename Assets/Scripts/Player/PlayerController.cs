@@ -1,5 +1,4 @@
 using UnityEngine;
-using Game.Pause;
 
 namespace Game.Player
 {
@@ -15,9 +14,7 @@ namespace Game.Player
     [RequireComponent(typeof(Appearance))]
 
     public class PlayerController : MonoBehaviour, IMovementSpeedReader
-    {       
-        [SerializeField] private PlayerType _playerType;
-        
+    {                 
         [Range(0,10)][SerializeField] private float _movementSpeed;
         public float MovementSpeed => _movementSpeed;
 
@@ -33,8 +30,6 @@ namespace Game.Player
             _movement = GetComponent<Movement>();
             _rotation = GetComponent<Rotation>();
             _appearance = GetComponent<Appearance>();
-
-            _playerInputs.Initialize(_playerType);
         }
 
         private void OnEnable()
@@ -79,7 +74,7 @@ namespace Game.Player
 
         private void TryChangeMovementSpeed(PlayerType player, float speed)
         {
-            if (_playerType != player) return;
+            if (_playerInputs.PlayerType != player) return;
 
             _movementSpeed = speed;
         }

@@ -4,7 +4,10 @@ using UnityEngine.InputSystem;
 namespace Game.Player
 {
     public class PlayerInputs : MonoBehaviour
-    {          
+    {
+        [SerializeField] private PlayerType _playerType;
+        public PlayerType PlayerType => _playerType;
+
         private GameControls _playerControls;        
 
         private InputAction _moveAction;
@@ -21,7 +24,13 @@ namespace Game.Player
 
             return _rotateAction.WasPressedThisFrame();
         }
-           
+
+        private void Awake()
+        {
+            _playerControls = new GameControls();
+            EnablePlayerInputs();
+        }
+
         private void OnEnable()
         {
             _moveAction.Enable();
@@ -36,9 +45,9 @@ namespace Game.Player
             _changeColorAction.Disable();            
         }
 
-        private void EnablePlayerInputs(PlayerType player)
+        private void EnablePlayerInputs()
         {
-            switch (player)
+            switch (_playerType)
             {
                 case PlayerType.PlayerOne:
                     _moveAction = _playerControls.PlayerOne.Move;
@@ -53,14 +62,8 @@ namespace Game.Player
                     break;
 
             }
-        }        
-
-        public void Initialize(PlayerType player)
-        {
-            _playerControls = new GameControls();
-
-            EnablePlayerInputs(player);
-        }
+        }       
+                
     }
 }
 
