@@ -4,12 +4,28 @@ namespace Game.Player
 {
     public static class PlayerEvents
     {
-        public static event Action<PlayerType, float> OnPlayerMovementSpeedChanged;
+        public static event Action<PlayerType> OnPlayerInitialized;
 
-        public static void RaisePlayerMovementSpeedChanged(PlayerType playerType, float speed)
+        public static event Action<PlayerType, float> OnPlayerMovementSpeedChangeRequested;
+
+        public static event Action<PlayerType, float> OnPlayerMovementSpeedUpdated;
+
+
+        public static void RaisePlayerInitialized(PlayerType playerType)
         {
-            OnPlayerMovementSpeedChanged?.Invoke(playerType, speed);
+            OnPlayerInitialized?.Invoke(playerType);
         }
+
+        public static void RaisePlayerMovementSpeedChangeRequested(PlayerType playerType, float speed)
+        {
+            OnPlayerMovementSpeedChangeRequested?.Invoke(playerType, speed);
+        }
+
+        public static void RaisePlayerMovementSpeedUpdated(PlayerType playerType, float speed)
+        {
+            OnPlayerMovementSpeedUpdated?.Invoke(playerType, speed);
+        }
+       
     }
 }
 

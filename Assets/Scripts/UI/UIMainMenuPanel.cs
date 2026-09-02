@@ -1,14 +1,14 @@
-using Game.Pause;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game.UI
 {
-    public class UIPausePanel : UIMainPanel
-    {
+    public class UIMainMenuPanel : UIMainPanel
+    {        
         protected override void OnPlayClicked()
         {
             base.OnPlayClicked();
-            PauseEvents.RaiseContinueClicked();
+            SceneManager.LoadScene(1);
         }
     }
 }

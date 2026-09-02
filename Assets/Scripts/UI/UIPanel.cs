@@ -6,9 +6,9 @@ namespace Game.UI
     {
         //poner scriptableobject
         [Range(0.2f, 1f)][SerializeField] private float _onDisplayAlpha = 1f;
-        [SerializeField] private CanvasGroup _canvasGroup;
+        private CanvasGroup _canvasGroup;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }

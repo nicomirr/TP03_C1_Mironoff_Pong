@@ -15,7 +15,7 @@ namespace Game.Player
 
     public class PlayerController : MonoBehaviour, IMovementSpeedReader
     {                 
-        [Range(0,10)][SerializeField] private float _movementSpeed;
+        private float _movementSpeed;
         public float MovementSpeed => _movementSpeed;
 
         private PlayerInputs _playerInputs;
@@ -34,7 +34,12 @@ namespace Game.Player
 
         private void OnEnable()
         {
-            PlayerEvents.OnPlayerMovementSpeedChanged += TryChangeMovementSpeed;
+            PlayerEvents.OnPlayerMovementSpeedUpdated += TryChangeMovementSpeed;
+        }
+
+        private void Start()
+        {
+            PlayerEvents.RaisePlayerInitialized(_playerInputs.PlayerType);
         }
 
         private void Update()
@@ -46,7 +51,7 @@ namespace Game.Player
 
         private void OnDisable()
         {
-            PlayerEvents.OnPlayerMovementSpeedChanged -= TryChangeMovementSpeed;
+            PlayerEvents.OnPlayerMovementSpeedUpdated -= TryChangeMovementSpeed;
         }
 
         private void HandleMovement()

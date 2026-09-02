@@ -7,45 +7,56 @@ namespace Game.UI
 {
     public class UIMovementSpeedSlider : MonoBehaviour
     {
-        //[SerializeField] private TMP_Text _speedText;
-        //[SerializeField] private PlayerType _player;
 
-        //private IMovementSpeedReader _movementSpeedReader;
+        [SerializeField] private TMP_Text _speedValueText;
+        [SerializeField] private PlayerType _playerType;
 
-        //private Slider _speedSlider;
+        private float _currentSpeed;
+
+        private Slider _speedSlider;
 
 
-        //private void OnEnable()
-        //{
-        //    _speedSlider.value = _movementSpeedReader.MovementSpeed;
-        //    UpdateSpeedText();
-        //}
+        private void Awake()
+        {
+            _speedSlider = GetComponent<Slider>();
+            _speedSlider.onValueChanged.AddListener(OnSpeedChanged);
+            
+            UIEvents.OnSpeedSliderValueInitialized += InitializeSpeed;
+        }
 
-        //private void OnDestroy()
-        //{
-        //    _speedSlider.onValueChanged.RemoveAllListeners();
-        //}
+        private void Start()
+        {
+            UIEvents.RaiseRequestSpeedValue(_playerType);            
+        }
 
-        //private void OnSpeedChanged(float speed)
-        //{
-        //    PlayerEvents.RaisePlayerMovementSpeedChanged(_player, speed);
-        //    _speedSlider.value = speed;
-        //    UpdateSpeedText();            
-        //}
+        private void OnDestroy()
+        {
+            _speedSlider.onValueChanged.RemoveAllListeners();
 
-        //private void UpdateSpeedText()
-        //{
-        //    int speedPercentage = (int)(_movementSpeedReader.MovementSpeed / _speedSlider.maxValue * 100);
-        //    _speedText.text = speedPercentage.ToString() + " %";
-        //}
+            UIEvents.OnSpeedSliderValueInitialized -= InitializeSpeed;
+        }
 
-        //public void Initialize(IMovementSpeedReader movementSpeedReader)
-        //{
-        //    _speedSlider = GetComponent<Slider>();
-        //    _movementSpeedReader = movementSpeedReader;
+        private void InitializeSpeed(PlayerType playerType, float speed)
+        {
+            if (_playerType != playerType) return;
 
-        //    _speedSlider.onValueChanged.AddListener(OnSpeedChanged);
-        //}
+            _currentSpeed = speed;
+            _speedSlider.value = _currentSpeed;
+            UpdateSpeedText();
+        }
+
+        private void OnSpeedChanged(float speed)
+        {
+            PlayerEvents.RaisePlayerMovementSpeedChangeRequested(_playerType, speed);
+            _currentSpeed = speed;
+            UpdateSpeedText();            
+        }
+
+        private void UpdateSpeedText()
+        {
+            int speedPercentage = (int)(_currentSpeed / _speedSlider.maxValue * 100);
+            _speedValueText.text = speedPercentage.ToString() + " %";
+        }        
     }
 }
 
