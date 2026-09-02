@@ -42,9 +42,13 @@ namespace Game.Player
             PlayerEvents.RaisePlayerInitialized(_playerInputs.PlayerType);
         }
 
+        private void FixedUpdate()
+        {
+            HandleMovement();            
+        }
+
         private void Update()
         {
-            HandleMovement();
             HandleRotation();       
             HandleColorChange();
         }
