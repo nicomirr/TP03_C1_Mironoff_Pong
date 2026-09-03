@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: PlayerInitialSettings
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInitialSettings
   _movementSpeed: 10
+  _padSize: 1.8
+  _padColor: {r: 1, g: 1, b: 1, a: 1}

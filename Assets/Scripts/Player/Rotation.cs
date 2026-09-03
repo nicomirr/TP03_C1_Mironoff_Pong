@@ -15,7 +15,7 @@ namespace Game.Player
 
         public void Rotate(float direction)
         {
-            this.transform.Rotate(Vector3.forward * (-direction * _rotationAmount));
+            _rb.MoveRotation(_rb.rotation + (-direction * _rotationAmount));
         }
     }
 }

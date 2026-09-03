@@ -1,18 +1,20 @@
 using UnityEngine;
 
-public class BallLauncher : MonoBehaviour
+namespace Game.Ball
 {
-    [SerializeField] private float _launchForce;
+    public class BallLauncher : MonoBehaviour
+    {       
+        private Rigidbody2D _rb;
 
-    private Rigidbody2D _rb;
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+        }
 
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
+        public void Launch(float speed)
+        {
+            _rb.AddForce(new Vector2(-1, 1f) * speed, ForceMode2D.Impulse);
+        }
     }
-
-    void Start()
-    {
-        _rb.AddForce(new Vector2(-1, 0f) * _launchForce, ForceMode2D.Impulse);
-    }    
 }
+

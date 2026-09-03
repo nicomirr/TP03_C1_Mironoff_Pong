@@ -13,8 +13,8 @@ namespace Game.Player
 
         public void Move(float direction, float movementSpeed)
         {
-            _rb.linearVelocity = Vector3.up * (direction * movementSpeed);
-            
+            Vector2 targetPosition = _rb.position + Vector2.up * (direction * movementSpeed * Time.fixedDeltaTime);          
+            _rb.MovePosition(targetPosition);
         }
     }
 }
