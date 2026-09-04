@@ -7512,6 +7512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2832579820773513593}
   - component: {fileID: 1485950334904239757}
+  - component: {fileID: 7067628197894143376}
   m_Layer: 5
   m_Name: PlayerOneSizeSlider
   m_TagString: Untagged
@@ -7585,13 +7586,27 @@ MonoBehaviour:
   m_FillRect: {fileID: 7584449154941805067}
   m_HandleRect: {fileID: 7441100461384306134}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
+  m_MinValue: 1.2
+  m_MaxValue: 1.8
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1.2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7067628197894143376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7643801251846711020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8057b4d7cf17aa4fb493f675257a4e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISizeSlider
+  _playerType: 0
+  _valueText: {fileID: 8796992659592488123}
 --- !u!1 &7692824054720965624
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,6 +8107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8888503785576031638}
   - component: {fileID: 2699182037300776710}
+  - component: {fileID: 944930773159174049}
   m_Layer: 5
   m_Name: PlayerTwoSizeSlider
   m_TagString: Untagged
@@ -8165,13 +8181,27 @@ MonoBehaviour:
   m_FillRect: {fileID: 5939438448951079020}
   m_HandleRect: {fileID: 35884252022751627}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 10
+  m_MinValue: 1.2
+  m_MaxValue: 1.8
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1.2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &944930773159174049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8073480916731547811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8057b4d7cf17aa4fb493f675257a4e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UISizeSlider
+  _playerType: 1
+  _valueText: {fileID: 9011684628669929090}
 --- !u!1 &8124287469867820768
 GameObject:
   m_ObjectHideFlags: 0

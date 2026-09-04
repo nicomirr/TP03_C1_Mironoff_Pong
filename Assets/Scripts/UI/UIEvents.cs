@@ -14,6 +14,9 @@ public static class UIEvents
     public static event Action<PlayerType> OnColorInitialValueRequested;
     public static event Action<PlayerType, Color32> OnColorValueInitialized;
 
+    public static event Action<PlayerType> OnSizeSliderInitialValueRequested;
+    public static event Action<PlayerType, float> OnSizeSliderValueInitialized;
+
     public static void RaiseSettingsClicked()
     {
         OnSettingsClicked?.Invoke();
@@ -47,5 +50,15 @@ public static class UIEvents
     public static void RaiseColorValueInitialized(PlayerType playerType, Color32 color)
     {
         OnColorValueInitialized?.Invoke(playerType, color);
+    }
+
+    public static void RaiseSizeSliderInitialValueRequested(PlayerType playerType)
+    {
+        OnSizeSliderInitialValueRequested?.Invoke(playerType);
+    }
+
+    public static void RaiseSizeValueInitialized(PlayerType playerType, float size)
+    {
+        OnSizeSliderValueInitialized?.Invoke(playerType, size);
     }
 }

@@ -21,7 +21,8 @@ namespace Game.UI.Slidebars
         }
 
         private void OnDestroy()
-        {
+        {                      
+            //podria estar en base
             _slider.onValueChanged.RemoveAllListeners();
             UIEvents.OnSpeedSliderValueInitialized -= InitializeSpeed;
         }

@@ -12,6 +12,7 @@ namespace Game.Player
     [RequireComponent(typeof(Movement))]
     [RequireComponent(typeof(Rotation))]
     [RequireComponent(typeof(Appearance))]
+    [RequireComponent(typeof(PaddleScaler))]
 
     public class PlayerController : MonoBehaviour, IMovementSpeedReader
     {                 
@@ -21,7 +22,8 @@ namespace Game.Player
         private PlayerInputs _playerInputs;
         private Movement _movement;
         private Rotation _rotation;
-        private Appearance _colorChanger;
+        private Appearance _appearance;
+        private PaddleScaler _paddleScaler;
 
 
         private void Awake()
@@ -29,10 +31,12 @@ namespace Game.Player
             _playerInputs = GetComponent<PlayerInputs>();
             _movement = GetComponent<Movement>();
             _rotation = GetComponent<Rotation>();
-            _colorChanger = GetComponent<Appearance>();
+            _appearance = GetComponent<Appearance>();
+            _paddleScaler = GetComponent<PaddleScaler>();
 
             PlayerEvents.OnPlayerMovementSpeedUpdated += TryChangeMovementSpeed;
             PlayerEvents.OnPlayerColorUpdated += TryChangeColor;
+            PlayerEvents.OnPlayerSizeUpdated += TryChangeSize;
         }
 
         private void Start()
@@ -76,7 +80,7 @@ namespace Game.Player
         {
             if(_playerInputs.ChangeColorReleased)
             {
-                Color32 color = _colorChanger.RandomizeColor();
+                Color32 color = _appearance.RandomizeColor();
 
                 PlayerEvents.RaisePlayerColorRandomized(_playerInputs.PlayerType, color);
             }
@@ -93,7 +97,14 @@ namespace Game.Player
         {
             if (_playerInputs.PlayerType != player) return;
             
-            _colorChanger.ChangeColor(color);
+            _appearance.ChangeColor(color);
+        }
+
+        private void TryChangeSize(PlayerType player, float scale)
+        {
+            if (_playerInputs.PlayerType != player) return;
+
+            _paddleScaler.ChangeScale(scale);
         }
 
     }

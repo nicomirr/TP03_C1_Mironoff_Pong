@@ -16,6 +16,8 @@ namespace Game.Player
 
         private Dictionary<PlayerType, Color32> _colors;
 
+        private Dictionary<PlayerType, float> _yScales;
+
         private void Awake()
         {
             if (_instance == null)
@@ -43,24 +45,37 @@ namespace Game.Player
                 _colors.Add(playerType, _initialSettings.PadColor);
             }
 
+            _yScales = new Dictionary<PlayerType, float>();
+
+            foreach(PlayerType playerType in Enum.GetValues(typeof (PlayerType)))
+            {
+                _yScales.Add(playerType, _initialSettings.PadSize);
+            }
+
             PlayerEvents.OnPlayerInitialized += SendPlayerMovementSpeed;
+            PlayerEvents.OnPlayerInitialized += SendPlayerScale;
 
             PlayerEvents.OnPlayerMovementSpeedChangeRequested += UpdateSpeedValues;
             PlayerEvents.OnPlayerColorChangeRequested += UpdateColorValues;
+            PlayerEvents.OnPlayerSizeChangeRequested += UpdateScaleValues;
 
             UIEvents.OnSpeedSliderInitialValueRequested += SendUISpeedValue;
             UIEvents.OnColorInitialValueRequested += SendUIColorValue;
+            UIEvents.OnSizeSliderInitialValueRequested += SendUIScaleValue;
         }
 
         private void OnDestroy()
         {
             PlayerEvents.OnPlayerInitialized -= SendPlayerMovementSpeed;
+            PlayerEvents.OnPlayerInitialized -= SendPlayerScale;
 
             PlayerEvents.OnPlayerMovementSpeedChangeRequested -= UpdateSpeedValues;
             PlayerEvents.OnPlayerColorChangeRequested -= UpdateColorValues;
+            PlayerEvents.OnPlayerSizeChangeRequested -= UpdateScaleValues;
 
             UIEvents.OnSpeedSliderInitialValueRequested -= SendUISpeedValue;
             UIEvents.OnColorInitialValueRequested -= SendUIColorValue;
+            UIEvents.OnSizeSliderInitialValueRequested -= SendUIScaleValue;
 
             if (_instance == this)
             {
@@ -98,6 +113,22 @@ namespace Game.Player
         private void SendUIColorValue(PlayerType playerType)
         {
             UIEvents.RaiseColorValueInitialized(playerType, _colors[playerType]);
+        }
+
+        private void UpdateScaleValues(PlayerType playerType, float yScale)
+        {
+            _yScales[playerType] = yScale;
+            SendPlayerScale(playerType);
+        }
+
+        private void SendPlayerScale(PlayerType playerType)
+        {
+            PlayerEvents.RaisePlayerSizeUpdated(playerType, _yScales[playerType]);
+        }
+
+        private void SendUIScaleValue(PlayerType playerType)
+        {
+            UIEvents.RaiseSizeValueInitialized(playerType, _yScales[playerType]);
         }
     }
 }
