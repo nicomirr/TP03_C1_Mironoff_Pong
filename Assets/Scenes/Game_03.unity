@@ -1469,7 +1469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94811c49d562591478c2e4a334551d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallMovement
-  _speed: 10
+  _increaseAmout: 0.2
+  _initialSpeed: 10
+  _maxSpeed: 16
   _minHorizontalDirection: 0.6
 --- !u!1001 &1838379375
 PrefabInstance:
