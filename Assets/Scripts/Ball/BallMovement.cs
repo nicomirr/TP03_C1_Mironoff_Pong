@@ -1,27 +1,34 @@
 using Game.Ball;
 using UnityEngine;
+using System.Collections;
 
 public class BallMovement : MonoBehaviour
 {
-    [SerializeField] private float _minHorizontalDirection = 0.6f;
     [SerializeField] private float _speed = 10f;
+    [SerializeField] private float _minHorizontalDirection = 0.6f;
 
-    private Rigidbody2D _rb;
     private BallLauncher _ballLauncher;
+    private Rigidbody2D _rb;
+
+    private bool _isLaunched;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody2D>();
         _ballLauncher = GetComponent<BallLauncher>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
-        _ballLauncher.Launch(_speed);
+        yield return _ballLauncher.LaunchRoutine();
+
+        _isLaunched = true;
     }
 
     private void FixedUpdate()
     {
+        if (!_isLaunched) return;
+
         Vector2 direction = _rb.linearVelocity.normalized;
 
         if (Mathf.Abs(direction.x) < _minHorizontalDirection)
