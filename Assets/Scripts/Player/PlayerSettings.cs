@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Game.Player
 {
+    //REFACTORIZAR CON GENERICS
+
     public class PlayerSettings : MonoBehaviour
     {
         private static PlayerSettings _instance;
@@ -11,6 +13,8 @@ namespace Game.Player
         [SerializeField] private PlayerInitialSettings _initialSettings;
 
         private Dictionary<PlayerType, float> _movementSpeeds;
+
+        private Dictionary<PlayerType, Color32> _colors;
 
         private void Awake()
         {
@@ -32,16 +36,31 @@ namespace Game.Player
                 _movementSpeeds.Add(playerType, _initialSettings.MovementSpeed);
             }
 
+            _colors = new Dictionary<PlayerType, Color32>();
+
+            foreach (PlayerType playerType in Enum.GetValues(typeof(PlayerType)))
+            {
+                _colors.Add(playerType, _initialSettings.PadColor);
+            }
+
             PlayerEvents.OnPlayerInitialized += SendPlayerMovementSpeed;
+
             PlayerEvents.OnPlayerMovementSpeedChangeRequested += UpdateSpeedValues;
-            UIEvents.OnRequestSpeedValue += SendUISpeedValue;
+            PlayerEvents.OnPlayerColorChangeRequested += UpdateColorValues;
+
+            UIEvents.OnSpeedSliderInitialValueRequested += SendUISpeedValue;
+            UIEvents.OnColorInitialValueRequested += SendUIColorValue;
         }
 
         private void OnDestroy()
         {
             PlayerEvents.OnPlayerInitialized -= SendPlayerMovementSpeed;
+
             PlayerEvents.OnPlayerMovementSpeedChangeRequested -= UpdateSpeedValues;
-            UIEvents.OnRequestSpeedValue -= SendUISpeedValue;
+            PlayerEvents.OnPlayerColorChangeRequested -= UpdateColorValues;
+
+            UIEvents.OnSpeedSliderInitialValueRequested -= SendUISpeedValue;
+            UIEvents.OnColorInitialValueRequested -= SendUIColorValue;
 
             if (_instance == this)
             {
@@ -63,6 +82,22 @@ namespace Game.Player
         private void SendUISpeedValue(PlayerType playerType)
         {
             UIEvents.RaiseSpeedSliderValueInitialized(playerType, _movementSpeeds[playerType]);
+        }
+
+        private void UpdateColorValues(PlayerType playerType, Color32 color)
+        {
+            _colors[playerType] = color;
+            SendPlayerColor(playerType);
+        }
+
+        private void SendPlayerColor(PlayerType playerType)
+        {
+            PlayerEvents.RaisePlayerColorUpdated(playerType, _colors[playerType]);
+        }
+
+        private void SendUIColorValue(PlayerType playerType)
+        {
+            UIEvents.RaiseColorValueInitialized(playerType, _colors[playerType]);
         }
     }
 }

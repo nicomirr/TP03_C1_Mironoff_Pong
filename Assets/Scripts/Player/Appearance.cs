@@ -11,14 +11,21 @@ namespace Game.Player
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
 
-        public void RandomizeColor()
+        public Color32 RandomizeColor()
         {
-            float r = Random.Range(0f, 1f);
-            float g = Random.Range(0f, 1f);
-            float b = Random.Range(0f, 1f);
+            byte r = (byte)Random.Range(0, 256);
+            byte g = (byte)Random.Range(0, 256);
+            byte b = (byte)Random.Range(0, 256);
 
-            Color color = new Color(r, g, b, 1);
+            Color32 color = new Color32(r, g, b, 1);
 
+            _spriteRenderer.color = color;
+
+            return color;
+        }
+
+        public void ChangeColor(Color32 color)
+        {
             _spriteRenderer.color = color;
         }
     }

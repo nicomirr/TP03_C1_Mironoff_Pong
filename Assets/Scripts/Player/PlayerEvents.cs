@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Game.Player
 {
@@ -9,6 +10,16 @@ namespace Game.Player
         public static event Action<PlayerType, float> OnPlayerMovementSpeedChangeRequested;
 
         public static event Action<PlayerType, float> OnPlayerMovementSpeedUpdated;
+
+        public static event Action<PlayerType, Color32> OnPlayerColorChangeRequested;
+
+        public static event Action<PlayerType, Color32> OnPlayerColorUpdated;
+
+        public static event Action<PlayerType, Color32> OnPlayerColorRandomized;
+
+        public static event Action<PlayerType, float> OnPlayerMovementSizeChangeRequested;
+
+        public static event Action<PlayerType, float> OnPlayerMovementSizeUpdated;
 
 
         public static void RaisePlayerInitialized(PlayerType playerType)
@@ -25,7 +36,22 @@ namespace Game.Player
         {
             OnPlayerMovementSpeedUpdated?.Invoke(playerType, speed);
         }
-       
+
+        public static void RaisePlayerColorChangeRequested(PlayerType playerType, Color32 color)
+        {
+            OnPlayerColorChangeRequested?.Invoke(playerType, color);
+        }
+
+        public static void RaisePlayerColorUpdated(PlayerType playerType, Color32 color)
+        {
+            OnPlayerColorUpdated?.Invoke(playerType, color);
+        }
+
+        public static void RaisePlayerColorRandomized(PlayerType playerType, Color32 color)
+        {
+            OnPlayerColorRandomized?.Invoke(playerType, color);
+        }
+
     }
 }
 

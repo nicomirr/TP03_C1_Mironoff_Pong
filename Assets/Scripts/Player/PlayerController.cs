@@ -21,7 +21,7 @@ namespace Game.Player
         private PlayerInputs _playerInputs;
         private Movement _movement;
         private Rotation _rotation;
-        private Appearance _appearance;
+        private Appearance _colorChanger;
 
 
         private void Awake()
@@ -29,12 +29,10 @@ namespace Game.Player
             _playerInputs = GetComponent<PlayerInputs>();
             _movement = GetComponent<Movement>();
             _rotation = GetComponent<Rotation>();
-            _appearance = GetComponent<Appearance>();
-        }
+            _colorChanger = GetComponent<Appearance>();
 
-        private void OnEnable()
-        {
             PlayerEvents.OnPlayerMovementSpeedUpdated += TryChangeMovementSpeed;
+            PlayerEvents.OnPlayerColorUpdated += TryChangeColor;
         }
 
         private void Start()
@@ -53,9 +51,10 @@ namespace Game.Player
             HandleColorChange();
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             PlayerEvents.OnPlayerMovementSpeedUpdated -= TryChangeMovementSpeed;
+            PlayerEvents.OnPlayerColorUpdated -= TryChangeColor;
         }
 
         private void HandleMovement()
@@ -77,7 +76,9 @@ namespace Game.Player
         {
             if(_playerInputs.ChangeColorReleased)
             {
-                _appearance.RandomizeColor();
+                Color32 color = _colorChanger.RandomizeColor();
+
+                PlayerEvents.RaisePlayerColorRandomized(_playerInputs.PlayerType, color);
             }
         }        
 
@@ -86,6 +87,13 @@ namespace Game.Player
             if (_playerInputs.PlayerType != player) return;
 
             _movementSpeed = speed;
+        }
+
+        private void TryChangeColor(PlayerType player, Color32 color)
+        {
+            if (_playerInputs.PlayerType != player) return;
+            
+            _colorChanger.ChangeColor(color);
         }
 
     }

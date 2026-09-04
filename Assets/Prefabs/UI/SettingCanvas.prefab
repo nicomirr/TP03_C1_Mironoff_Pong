@@ -1932,6 +1932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5822556671720589176}
   - component: {fileID: 3160339813620361998}
+  - component: {fileID: 3285734207290706824}
   m_Layer: 5
   m_Name: PlayerOneRedSlider
   m_TagString: Untagged
@@ -2012,6 +2013,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3285734207290706824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568115153309111174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f05325be6c84549905a59f297a0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Slidebars.UIColorSlider
+  _playerType: 0
+  _valueText: {fileID: 254297618523311332}
 --- !u!1 &2594191983539979976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3748,6 +3763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3204838124973923729}
   - component: {fileID: 927939298889788017}
+  - component: {fileID: 7696099565190344533}
   m_Layer: 5
   m_Name: PlayerOneGreenSlider
   m_TagString: Untagged
@@ -3828,6 +3844,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7696099565190344533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258372014404269169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f05325be6c84549905a59f297a0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Slidebars.UIColorSlider
+  _playerType: 0
+  _valueText: {fileID: 7302622301845420037}
 --- !u!1 &4352210299961159674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,6 +4344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1706369585372104808}
   - component: {fileID: 6060011549401787886}
+  - component: {fileID: 4904273541869258394}
   m_Layer: 5
   m_Name: PlayerTwoBlueSlider
   m_TagString: Untagged
@@ -4394,6 +4425,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4904273541869258394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4920727017820798429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f05325be6c84549905a59f297a0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Slidebars.UIColorSlider
+  _playerType: 1
+  _valueText: {fileID: 4837770862801443061}
 --- !u!1 &4941030224620193428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,8 +5071,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f4041464a7d9342afb699367c7d644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementSpeedSlider
-  _speedValueText: {fileID: 4085289893616656332}
   _playerType: 1
+  _valueText: {fileID: 4085289893616656332}
 --- !u!1 &5334875230033671086
 GameObject:
   m_ObjectHideFlags: 0
@@ -5038,6 +5083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9220180483912589008}
   - component: {fileID: 3194816589103132773}
+  - component: {fileID: 352760146973638563}
   m_Layer: 5
   m_Name: PlayerOneBlueSlider
   m_TagString: Untagged
@@ -5118,6 +5164,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &352760146973638563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5334875230033671086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f05325be6c84549905a59f297a0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Slidebars.UIColorSlider
+  _playerType: 0
+  _valueText: {fileID: 174614494017451700}
 --- !u!1 &5495621294671476791
 GameObject:
   m_ObjectHideFlags: 0
@@ -6164,6 +6224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5314633116178959476}
   - component: {fileID: 7448631651085930801}
+  - component: {fileID: 8232374318740818343}
   m_Layer: 5
   m_Name: PlayerTwoRedSlider
   m_TagString: Untagged
@@ -6244,6 +6305,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8232374318740818343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018832622671250300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f05325be6c84549905a59f297a0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Slidebars.UIColorSlider
+  _playerType: 1
+  _valueText: {fileID: 1264527167828718992}
 --- !u!1 &7051649048111523628
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,8 +6742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5f4041464a7d9342afb699367c7d644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovementSpeedSlider
-  _speedValueText: {fileID: 7850156674564929356}
   _playerType: 0
+  _valueText: {fileID: 7850156674564929356}
 --- !u!1 &7106322054328407189
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,6 +7191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6741501096255388552}
   - component: {fileID: 972072846907324029}
+  - component: {fileID: 7564386653148460625}
   m_Layer: 5
   m_Name: PlayerTwoGreenSlider
   m_TagString: Untagged
@@ -7196,6 +7272,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7564386653148460625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417599384387541337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f05325be6c84549905a59f297a0560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.UI.Slidebars.UIColorSlider
+  _playerType: 1
+  _valueText: {fileID: 7311057173243213384}
 --- !u!1 &7427006529486846774
 GameObject:
   m_ObjectHideFlags: 0
@@ -7588,6 +7678,7 @@ GameObject:
   - component: {fileID: 6967250066643629688}
   - component: {fileID: 7839601222532679031}
   - component: {fileID: 4916317567510349262}
+  - component: {fileID: 6647810973637278152}
   m_Layer: 5
   m_Name: CurrentColorChangeToPlayer
   m_TagString: Untagged
@@ -7652,6 +7743,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6647810973637278152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714812435283481322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a453f057a2efc0f438ac1fb17b9e2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPaddleColor
+  _playerType: 1
+  _redChannelSlider: {fileID: 8232374318740818343}
+  _greenChannelSlider: {fileID: 7564386653148460625}
+  _blueChannelSlider: {fileID: 4904273541869258394}
 --- !u!1 &7799621413478760731
 GameObject:
   m_ObjectHideFlags: 0
@@ -8572,6 +8679,7 @@ GameObject:
   - component: {fileID: 4067118063415522397}
   - component: {fileID: 8490138158856452041}
   - component: {fileID: 1013694640754624100}
+  - component: {fileID: 3852564245921421945}
   m_Layer: 5
   m_Name: CurrentColorChangeToPlayer
   m_TagString: Untagged
@@ -8636,6 +8744,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3852564245921421945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588624985803218011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a453f057a2efc0f438ac1fb17b9e2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPaddleColor
+  _playerType: 0
+  _redChannelSlider: {fileID: 3285734207290706824}
+  _greenChannelSlider: {fileID: 7696099565190344533}
+  _blueChannelSlider: {fileID: 352760146973638563}
 --- !u!1 &8590165537350348480
 GameObject:
   m_ObjectHideFlags: 0
