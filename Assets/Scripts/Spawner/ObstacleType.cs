@@ -1,0 +1,4 @@
+public enum ObstacleType
+{
+    Regular
+}
