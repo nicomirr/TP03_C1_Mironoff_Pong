@@ -1,12 +1,16 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Game.Spawner
 {
-    public class ObstacleSpawner : MonoBehaviour
+    public class SpawnableObjectSpawner : MonoBehaviour
     {
-        [SerializeField] private ObstaclesPool _obstaclesPool;
+        [SerializeField] private SpawnableObjectPool _spawnableObjectPool;
+
+        //pasar categoria y tiempos de spawneo / despawneo a scriptable object
+
+        [SerializeField] private SpawnableObjectCategory _category;
 
         [SerializeField] private float _minSpawnTime;
         [SerializeField] private float _maxSpawnTime;
@@ -23,14 +27,14 @@ namespace Game.Spawner
 
         private void Start()
         {            
-            StartCoroutine(SpawnObstaclesRoutine());
+            StartCoroutine(SpawnObjectsRoutine());
         }
 
 
         //ESTA CORRUTINA DEBERIA INICIAR AL LANZARSE LA PELOTA Y TERMINAR CUANDO SE ANOTA UN PUNTO. EVENTOS DE GAMEPLAY
-        private IEnumerator SpawnObstaclesRoutine()
+        private IEnumerator SpawnObjectsRoutine()
         {
-            ObstacleType[] obstacleTypes = (ObstacleType[])System.Enum.GetValues(typeof(ObstacleType));
+            IReadOnlyList<SpawnableObjectType> availableTypes = _spawnableObjectPool.GetTypes(_category);
 
             while (true)
             {
@@ -43,20 +47,20 @@ namespace Game.Spawner
 
                 Vector2 spawnPos = new Vector2(randomX, randomY);
 
-                ObstacleType randomType = obstacleTypes[Random.Range(0, obstacleTypes.Length)];
-                                
-                GameObject obstacle = _obstaclesPool.GetObstacle(randomType);         
+                SpawnableObjectType randomType = availableTypes[Random.Range(0, availableTypes.Count)];
+
+                GameObject spawnableObject = _spawnableObjectPool.GetSpawnableObject(randomType);         
                 
-                if(obstacle != null)
+                if(spawnableObject != null)
                 {
-                    obstacle.transform.position = spawnPos;
-                    obstacle.SetActive(true);
+                    spawnableObject.transform.position = spawnPos;
+                    spawnableObject.SetActive(true);
 
                     float despawnTime = Random.Range(_minDespawnTime, _maxDespawnTime);
 
                     yield return new WaitForSeconds(despawnTime);
 
-                    _obstaclesPool.ReleaseObstacle(obstacle);
+                    _spawnableObjectPool.ReleaseSpawnableObject(spawnableObject);
                 }                            
             }           
         }       

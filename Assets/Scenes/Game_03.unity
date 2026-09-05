@@ -229,7 +229,7 @@ Transform:
   - {fileID: 905199547}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &452208339
+--- !u!1 &395110054
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,39 +237,86 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 452208340}
-  - component: {fileID: 452208341}
+  - component: {fileID: 395110055}
+  - component: {fileID: 395110057}
+  - component: {fileID: 395110056}
   m_Layer: 0
-  m_Name: PowerupsSpawner
+  m_Name: SpawnArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &452208340
+  m_IsActive: 1
+--- !u!4 &395110055
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452208339}
+  m_GameObject: {fileID: 395110054}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0058, y: -0.0102, z: 0}
-  m_LocalScale: {x: 0.77983916, y: 9.919362, z: 1}
+  m_LocalPosition: {x: -0.0058, y: -0.0642, z: 0}
+  m_LocalScale: {x: 0.8, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1385694189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &452208341
+--- !u!61 &395110056
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395110054}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!212 &395110057
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 452208339}
-  m_Enabled: 1
+  m_GameObject: {fileID: 395110054}
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -311,7 +358,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.16732669, a: 1}
+  m_Color: {r: 0.12673402, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -320,6 +367,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &433176898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433176899}
+  - component: {fileID: 433176900}
+  m_Layer: 0
+  m_Name: PoweupsFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433176899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433176898}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864720014}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &433176900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433176898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eacfcb720414e549bd15a5ea56620ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstaclesFactory
+  _spawnableObjects:
+  - {fileID: 11400000, guid: d55192ab48e28fb46a70fc20f3cf1ec5, type: 2}
 --- !u!4 &561236733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1222409918594708915, guid: 9f5b8348c5af80a4881cad6cfbdb7906, type: 3}
@@ -630,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eacfcb720414e549bd15a5ea56620ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclesFactory
-  obstacles:
+  _spawnableObjects:
   - {fileID: 11400000, guid: d55192ab48e28fb46a70fc20f3cf1ec5, type: 2}
 --- !u!4 &678407717
 Transform:
@@ -914,7 +1007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09cbf1bc8162d247b6bd6b39214ea43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Spawner.ObstacleSpawner
-  _obstaclesPool: {fileID: 1323412462}
+  _spawnableObjectPool: {fileID: 1323412462}
+  _category: 0
   _minSpawnTime: 7
   _maxSpawnTime: 10
   _minDespawnTime: 4
@@ -1378,7 +1472,7 @@ GameObject:
   - component: {fileID: 1323412461}
   - component: {fileID: 1323412462}
   m_Layer: 0
-  m_Name: Pool
+  m_Name: ObstaclesPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1408,11 +1502,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1323412460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15a36e9ef68fdc4599873bc93b8c63e, type: 3}
+  m_Script: {fileID: 11500000, guid: 06cb0862d22c86a499135fcbe6005936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObstaclesPool
   _similarObjectsAmount: 3
-  _obstaclesFactory: {fileID: 678407716}
+  _factory: {fileID: 678407716}
 --- !u!1 &1382167887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1645,57 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1385694188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385694189}
+  - component: {fileID: 1385694190}
+  m_Layer: 0
+  m_Name: PowerupsSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1385694189
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385694188}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 395110055}
+  m_Father: {fileID: 1864720014}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385694190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385694188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09cbf1bc8162d247b6bd6b39214ea43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Spawner.ObstacleSpawner
+  _spawnableObjectPool: {fileID: 1688696640}
+  _category: 1
+  _minSpawnTime: 7
+  _maxSpawnTime: 10
+  _minDespawnTime: 4
+  _maxDespawnTime: 7
 --- !u!1 &1397332074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1743,52 @@ MonoBehaviour:
   _mainPanel: {fileID: 156282674824588739}
   _settingsPanel: {fileID: 8237818347691745248}
   _creditsPanel: {fileID: 7695270055235519026}
+--- !u!1 &1688696638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688696639}
+  - component: {fileID: 1688696640}
+  m_Layer: 0
+  m_Name: PowerupsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688696639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688696638}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0058, y: -0.0102, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1864720014}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688696640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688696638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cb0862d22c86a499135fcbe6005936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstaclesPool
+  _similarObjectsAmount: 3
+  _factory: {fileID: 433176900}
 --- !u!1 &1696794205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +2112,40 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5b8348c5af80a4881cad6cfbdb7906, type: 3}
+--- !u!1 &1864720013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864720014}
+  m_Layer: 0
+  m_Name: -----Powerups-----
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1864720014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864720013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1385694189}
+  - {fileID: 1688696639}
+  - {fileID: 433176899}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1981106091
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,5 +3320,5 @@ SceneRoots:
   - {fileID: 1820745900}
   - {fileID: 389960597}
   - {fileID: 2022885962}
+  - {fileID: 1864720014}
   - {fileID: 693995440}
-  - {fileID: 452208340}

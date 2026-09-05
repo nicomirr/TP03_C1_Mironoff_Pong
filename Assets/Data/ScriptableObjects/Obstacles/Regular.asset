@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3265c7aca2d04418e18d2f7158e1d7, type: 3}
   m_Name: Regular
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  _obstacleType: 0
-  _obstaclePrefab: {fileID: 5342837933973198323, guid: 899b1bad79aa55a43aeca42fa6a0303c, type: 3}
+  _category: 0
+  _type: 0
+  _prefab: {fileID: 5342837933973198323, guid: 899b1bad79aa55a43aeca42fa6a0303c, type: 3}
