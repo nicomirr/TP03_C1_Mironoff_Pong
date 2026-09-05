@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.UI;
+using Game.Player;
 
-namespace Game.Player
+namespace Game.Settings
 {
     //REFACTORIZAR CON GENERICS
 

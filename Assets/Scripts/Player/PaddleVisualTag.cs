@@ -1,3 +1,7 @@
 using UnityEngine;
 
-public class PaddleVisualTag : MonoBehaviour{}
+namespace Game.Player
+{
+    public class PaddleVisualTag : MonoBehaviour { }
+}
+

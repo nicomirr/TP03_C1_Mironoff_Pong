@@ -1,30 +1,34 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class SpawnableObjectFactory : MonoBehaviour
+namespace Game.Spawner
 {
-    [SerializeField] private List<SpawnableObject> _spawnableObjects = new List<SpawnableObject>();
-    private Dictionary<SpawnableObjectType, SpawnableObject> _spawnableObjectsDictionary;
-
-    public int Count => _spawnableObjects.Count;
-
-    public void Initialize()
+    public class SpawnableObjectFactory : MonoBehaviour
     {
-        _spawnableObjectsDictionary = new Dictionary<SpawnableObjectType, SpawnableObject>();
+        [SerializeField] private List<SpawnableObject> _spawnableObjects = new List<SpawnableObject>();
+        private Dictionary<SpawnableObjectType, SpawnableObject> _spawnableObjectsDictionary;
 
-        foreach (var obstacle in _spawnableObjects)
+        public int Count => _spawnableObjects.Count;
+
+        public void Initialize()
         {
-            _spawnableObjectsDictionary.Add(obstacle.Type, obstacle);
+            _spawnableObjectsDictionary = new Dictionary<SpawnableObjectType, SpawnableObject>();
+
+            foreach (var obstacle in _spawnableObjects)
+            {
+                _spawnableObjectsDictionary.Add(obstacle.Type, obstacle);
+            }
+        }
+
+        public SpawnableObject GetSpawnableObjectData(int index)
+        {
+            return _spawnableObjects[index];
+        }
+
+        public GameObject CreateSpawnableObject(SpawnableObjectType spawnableObjectType)
+        {
+            return Instantiate(_spawnableObjectsDictionary[spawnableObjectType].Prefab);
         }
     }
-
-    public SpawnableObject GetSpawnableObjectData(int index)
-    {
-        return _spawnableObjects[index];
-    }
-
-    public GameObject CreateSpawnableObject(SpawnableObjectType spawnableObjectType)
-    {        
-        return Instantiate(_spawnableObjectsDictionary[spawnableObjectType].Prefab);
-    }
 }
+

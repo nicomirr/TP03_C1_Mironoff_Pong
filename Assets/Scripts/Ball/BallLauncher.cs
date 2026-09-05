@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Game.Gameplay;
 
 namespace Game.Ball
 {
@@ -25,6 +26,8 @@ namespace Game.Ball
             Vector2 direction = new Vector2(randomXDir, randomYDir).normalized;
 
             _rb.AddForce(direction * _launchForce, ForceMode2D.Impulse);
+
+            GameplayEvents.RaiseRoundStarted();
         }
     }
 }

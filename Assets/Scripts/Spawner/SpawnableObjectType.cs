@@ -1,5 +1,11 @@
-
-public enum SpawnableObjectType
+namespace Game.Spawner
 {
-    RegularObstacle
+    public enum SpawnableObjectType
+    {
+        RegularObstacle,
+        TestObstacle,
+        TestPowerup,
+        TestPowerupTwo
+    }
 }
+

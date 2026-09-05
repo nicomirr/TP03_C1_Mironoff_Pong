@@ -1,5 +1,9 @@
-public enum SpawnableObjectCategory
+namespace Game.Spawner
 {
-    Obstacle,
-    Powerup
+    public enum SpawnableObjectCategory
+    {
+        Obstacle,
+        Powerup
+    }
 }
+

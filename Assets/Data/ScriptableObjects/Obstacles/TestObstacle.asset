@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b3265c7aca2d04418e18d2f7158e1d7, type: 3}
+  m_Name: TestObstacle
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacle
+  _category: 0
+  _type: 1
+  _prefab: {fileID: 5342837933973198323, guid: 51cc3115d5399fe40b5cb63e1eccdd67, type: 3}
